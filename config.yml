@@ -1,3 +1,31 @@
 theme: jekyll-theme-minimal
 title: hello hackerone
 description: this is me mandip@mafia
+
+name: Generate Web Page
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  create-webpage:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Generate index.html File
+        run: |
+          echo "<!DOCTYPE html>" > index.html
+          echo "<html lang='en'>" >> index.html
+          echo "<head>" >> index.html
+          echo "  <meta charset='UTF-8'>" >> index.html
+          echo "  <meta name='viewport' content='width=device-width, initial-scale=1.0'>" >> index.html
+          echo "  <title>Hackone Web Page</title>" >> index.html
+          echo "</head>" >> index.html
+          echo "<body>" >> index.html
+          echo "  <h1>Hello hackone and this is me @mandip34mafia</h1>" >> index.html
+          echo "</body>" >> index.html
+          echo "</html>" >> index.html
